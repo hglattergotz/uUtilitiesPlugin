@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package packagerversion="1.9.0" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0     http://pear.php.net/dtd/tasks-1.0.xsd     http://pear.php.net/dtd/package-2.0     http://pear.php.net/dtd/package-2.0.xsd">
+  <name>uUtilitiesPlugin</name>
+  <uri>https://10.10.110.57/svn/sfPlugins/trunk/uUtilitiesPlugin/uUtilitiesPlugin-1.0.7.tgz</uri>
+  <summary>Collection of symfony utilities</summary>
+  <description>Various utility classes that are commonly used</description>
+  <lead>
+    <name>Henning Glatter-Gotz</name>
+    <user>hglattergotz</user>
+    <email>henning@glatter-gotz.com</email>
+    <active>yes</active>
+  </lead>
+  <date>2011-03-29</date>
+  <time>15:31:00</time>
+  <version>
+    <release>1.0.9</release>
+    <api>1.0.9</api>
+  </version>
+  <stability>
+    <release>stable</release>
+    <api>stable</api>
+  </stability>
+  <license uri="http://www.opensource.org/licenses/mit-license.html">MIT</license>
+  <notes>-</notes>
+  <contents>
+    <dir name="/">
+      <dir name="lib">
+        <dir name="task">
+          <file name="uBackupTask.class.php" role="data" />
+        </dir>
+        <file name="uArray.class.php" role="data" />
+        <file name="uCron.class.php" role="data" />
+        <file name="uCsvWriter.class.php" role="data" />
+        <file name="uDate.class.php" role="data" />
+        <file name="uDateTime.class.php" role="data" />
+        <file name="uDbBackup.class.php" role="data" />
+        <file name="uDebug.class.php" role="data" />
+        <file name="uFile.class.php" role="data" />
+        <file name="uFormat.class.php" role="data" />
+        <file name="uFs.class.php" role="data" />
+        <file name="uMapper.class.php" role="data" />
+        <file name="uParameterHolder.class.php" role="data" />
+        <file name="uParameterParser.class.php" role="data" />
+        <file name="uStatistics.class.php" role="data" />
+        <file name="uTime.class.php" role="data" />
+        <file name="uTypes.class.php" role="data" />
+        <file name="uUri.class.php" role="data" />
+        <file name="uValidate.class.php" role="data" />
+        <file name="uWeek.class.php" role="data" />
+      </dir>
+    </dir>
+  </contents>
+  <dependencies>
+    <required>
+      <php>
+        <min>5.2.4</min>
+      </php>
+      <pearinstaller>
+        <min>1.4.1</min>
+      </pearinstaller>
+    </required>
+  </dependencies>
+  <phprelease />
+  <changelog />
+</package>
