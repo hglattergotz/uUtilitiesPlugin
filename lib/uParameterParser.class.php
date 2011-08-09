@@ -5,7 +5,7 @@
  * Format of string:
  * parameterName=value:type,parameterName=value:type
  *
- * @package     uSettingsDoctrinePlugin
+ * @package     uUtilitiesPlugin
  * @subpackage  uParameterParser
  * @author      Henning Glatter-Gotz <henning@glatter-gotz.com>
  */

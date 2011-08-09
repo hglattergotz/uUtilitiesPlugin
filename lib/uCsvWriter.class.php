@@ -1,6 +1,6 @@
 <?php
 /**
- * @package     uSettingsDoctrinePlugin
+ * @package     uUtilitiesPlugin
  * @subpackage  uCsvWriter
  * @author      Henning Glatter-Gotz <henning@glatter-gotz.com>
  */

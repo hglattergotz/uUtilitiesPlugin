@@ -7,7 +7,7 @@
  * getters and setters and also allows a default value to be passed to the get
  * method.
  *
- * @package     uSettingsDoctrinePlugin
+ * @package     uUtilitiesPlugin
  * @subpackage  uParameterHolder
  * @author      Henning Glatter-Gotz <henning@glatter-gotz.com>
  */

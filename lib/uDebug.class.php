@@ -4,7 +4,7 @@
  * in symfony.
  * Depends on fs.
  *
- * @package     uSettingsDoctrinePlugin
+ * @package     uUtilitiesPlugin
  * @subpackage  uDebug
  * @author      Henning Glatter-Gotz <henning@glatter-gotz.com>
  */

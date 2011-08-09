@@ -4,7 +4,7 @@
  * printed out. The constructor will optionally start a timer that reports on
  * the elapsed time between construction and the call to the __toString method.
  *
- * @package     uSettingsDoctrinePlugin
+ * @package     uUtilitiesPlugin
  * @subpackage  uStatistics
  * @author      Henning Glatter-Gotz <henning@glatter-gotz.com>
  */

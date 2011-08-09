@@ -2,7 +2,7 @@
 /**
  * A helper class that performs various tasks on URI strings.
  *
- * @package     uSettingsDoctrinePlugin
+ * @package     uUtilitiesPlugin
  * @subpackage  uUri
  * @author      Henning Glatter-Gotz <henning@glatter-gotz.com>
  */

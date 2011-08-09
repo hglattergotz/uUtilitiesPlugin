@@ -9,7 +9,7 @@
  * documented. Methods that are not 100% clear are documented.
  *
 /**
- * @package     uSettingsDoctrinePlugin
+ * @package     uUtilitiesPlugin
  * @subpackage  uDate
  * @author      Henning Glatter-Gotz <henning@glatter-gotz.com>
  */

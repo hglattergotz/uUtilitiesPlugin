@@ -3,7 +3,7 @@
  * Helper class that simplifies varios file and path operations. Mostly this
  * wraps existing php functions but provides them all within a class context.
  *
- * @package     uSettingsDoctrinePlugin
+ * @package     uUtilitiesPlugin
  * @subpackage  uFile
  * @author      Henning Glatter-Gotz <henning@glatter-gotz.com>
  */

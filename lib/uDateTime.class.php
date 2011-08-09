@@ -3,7 +3,7 @@
  * Utility class that wraps frequently used datetime functions and makes them
  * application specific (eg. throw exceptions).
  *
- * @package     uSettingsDoctrinePlugin
+ * @package     uUtilitiesPlugin
  * @subpackage  uDateTime
  * @author      Henning Glatter-Gotz <henning@glatter-gotz.com>
  */

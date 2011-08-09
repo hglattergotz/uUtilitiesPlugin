@@ -3,7 +3,7 @@
  * Utility class for creating backups of the entire project database or select
  * tables of the project.
  *
- * @package     uSettingsDoctrinePlugin
+ * @package     uUtilitiesPlugin
  * @subpackage  uDbBackup
  * @author      Henning Glatter-Gotz <henning@glatter-gotz.com>
  */

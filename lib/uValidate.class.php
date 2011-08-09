@@ -1,6 +1,6 @@
 <?php
 /**
- * @package     uSettingsDoctrinePlugin
+ * @package     uUtilitiesPlugin
  * @subpackage  uValidate
  * @author      Henning Glatter-Gotz <henning@glatter-gotz.com>
  */

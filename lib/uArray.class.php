@@ -1,6 +1,6 @@
 <?php
 /**
- * @package     uSettingsDoctrinePlugin
+ * @package     uUtilitiesPlugin
  * @subpackage  uArray
  * @author      Henning Glatter-Gotz <henning@glatter-gotz.com>
  */

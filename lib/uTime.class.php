@@ -3,7 +3,7 @@
  *  Time utility class that represents HH:MM:SS and provides various methods for
  *  comparing objects of this type to each other.
  *
- * @package     uSettingsDoctrinePlugin
+ * @package     uUtilitiesPlugin
  * @subpackage  uTime
  * @author      Henning Glatter-Gotz <henning@glatter-gotz.com>
  */
