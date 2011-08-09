@@ -148,7 +148,7 @@ class uFs
     
     if (false === $r && $throwException)
     {
-      throw new Exception('Failed to unlinke file \''.$fileName.'\'.');
+      throw new Exception('Failed to unlink file \''.$fileName.'\'.');
     }
     else
     {
