@@ -49,6 +49,8 @@
         <file name="uValidate.class.php" role="data" />
         <file name="uWeek.class.php" role="data" />
       </dir>
+      <file name="LICENSE" role="data" />
+      <file name="README.md" role="data" />
     </dir>
   </contents>
   <dependencies>
