@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <package packagerversion="1.9.0" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0     http://pear.php.net/dtd/tasks-1.0.xsd     http://pear.php.net/dtd/package-2.0     http://pear.php.net/dtd/package-2.0.xsd">
   <name>uUtilitiesPlugin</name>
-  <uri>https://github.com/hglattergotz/uUtilitiesPlugin/raw/master/uUtilitiesPlugin-1.0.10.tgz</uri>
+  <uri>https://github.com/hglattergotz/uUtilitiesPlugin/raw/master/uUtilitiesPlugin-1.0.11.tgz</uri>
   <summary>Collection of symfony utilities</summary>
   <description>Various utility classes that are commonly used</description>
   <lead>
@@ -10,11 +10,11 @@
     <email>henning@glatter-gotz.com</email>
     <active>yes</active>
   </lead>
-  <date>2011-08-10</date>
-  <time>13:52:00</time>
+  <date>2011-08-11</date>
+  <time>21:32:00</time>
   <version>
-    <release>1.0.10</release>
-    <api>1.0.10</api>
+    <release>1.0.11</release>
+    <api>1.0.11</api>
   </version>
   <stability>
     <release>stable</release>
@@ -28,6 +28,7 @@
         <dir name="task">
           <file name="uBackupTask.class.php" role="data" />
           <file name="uShownConfigTask.class.php" role="data" />
+          <file name="uGetsvnrevisionTask.class.php" role="data" />
         </dir>
         <file name="uArray.class.php" role="data" />
         <file name="uCron.class.php" role="data" />
