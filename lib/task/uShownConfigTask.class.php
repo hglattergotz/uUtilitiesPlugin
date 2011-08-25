@@ -25,7 +25,7 @@ class uUtilShowconfigTask extends sfBaseTask
 
     $this->namespace        = 'uUtil';
     $this->name             = 'showconfig';
-    $this->briefDescription = '';
+    $this->briefDescription = 'Show the project configuration';
     $this->detailedDescription = <<<EOF
 The [uUtil:showconfig|INFO] emits the sfConfig array for the given application
 and environment.
