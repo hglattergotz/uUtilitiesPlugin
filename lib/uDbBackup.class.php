@@ -72,9 +72,13 @@ class uDbBackup
    * @param string $fullPath
    * @param string $output
    * @param array $options [compact, compress, overwrite, keepnfiles, stemname]
-   * @return integer
+   * @param string $errors
+   * @param array $messages
+   * @param string $connectionName
+   * 
+   * @return int 
    */
-  public static function database($fullPath, &$output, $options = array(), &$errors = '', &$messages = array())
+  public static function database($fullPath, &$output, $options = array(), &$errors = '', &$messages = array(), $connectionName = null)
   {
     $options = (!is_array($options) || empty($options)) ? self::makeDefaultOptions() : $options;
     $checkPath = ($options['compress']) ? $fullPath.'.gz' : $fullPath;
@@ -115,7 +119,7 @@ class uDbBackup
 
     try
     {
-      $cmd = self::makeFullDbDumpCmd($mysqlDumpOptions, $fullPath);
+      $cmd = self::makeFullDbDumpCmd($mysqlDumpOptions, $fullPath, $connectionName);
 
       exec($cmd, $output, $exitCode);
 
@@ -243,13 +247,13 @@ class uDbBackup
    * @param string $fullPath    The full path of the dump file to be written
    * @return string             The command line for a mysqldump
    */
-  protected static function makeFullDbDumpCmd($dumpOptions, $fullPath)
+  protected static function makeFullDbDumpCmd($dumpOptions, $fullPath, $connectionName = null)
   {
     $dbName = '';
     $userName = '';
     $password = '';
 
-    self::getDatabaseParams($dbName, $userName, $password);
+    self::getDatabaseParams($dbName, $userName, $password, $connectionName);
 
     $cmd = 'mysqldump --user='.$userName.' --password='.$password;
     $cmd .= (!empty($dumpOptions)) ? ' '.$dumpOptions : '';
@@ -328,11 +332,24 @@ class uDbBackup
    * @param <type> $userName
    * @param <type> $password
    */
-  protected static function getDatabaseParams(&$dbName, &$userName, &$password)
+  protected static function getDatabaseParams(&$dbName, &$userName, &$password, $connectionName = null)
   {
-    $options = Doctrine_Manager::connection()->getOptions();
+    if ($connectionName !== null)
+    {
+      $options = Doctrine_Manager::getInstance()->getConnection($connectionName)->getOptions();
+    }
+    else
+    {
+      $options = Doctrine_Manager::connection()->getOptions();
+    }
 
     $dsn = $options['dsn'];
+    
+    if (strpos($dsn, 'mysql') === false)
+    {
+      throw new Exception('uDbBackup only supports mysql databases!');
+    }
+    
     $dsnComponents = explode(';', $options['dsn']);
 
     foreach ($dsnComponents as $component)
