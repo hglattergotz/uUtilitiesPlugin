@@ -96,7 +96,7 @@ EOF;
   private function backup($arg, $opt)
   {
     $result = '';
-    $fullPath = uDbBackup::makeDatedFullPath($arg['path'], $arg['stemname'], $opt['connection']);
+    $fullPath = uDbBackup::makeDatedFullPath($arg['path'], $arg['stemname']);
     $opt['stemname'] = $arg['stemname'];
 
     return uDbBackup::database($fullPath, $result, $opt);

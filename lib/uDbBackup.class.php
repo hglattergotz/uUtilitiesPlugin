@@ -78,7 +78,7 @@ class uDbBackup
    * 
    * @return int 
    */
-  public static function database($fullPath, &$output, $options = array(), &$errors = '', &$messages = array(), $connectionName = null)
+  public static function database($fullPath, &$output, $options = array(), &$errors = '', &$messages = array())
   {
     $options = (!is_array($options) || empty($options)) ? self::makeDefaultOptions() : $options;
     $checkPath = ($options['compress']) ? $fullPath.'.gz' : $fullPath;
@@ -119,7 +119,7 @@ class uDbBackup
 
     try
     {
-      $cmd = self::makeFullDbDumpCmd($mysqlDumpOptions, $fullPath, $connectionName);
+      $cmd = self::makeFullDbDumpCmd($mysqlDumpOptions, $fullPath, $options['connection']);
 
       exec($cmd, $output, $exitCode);
 
