@@ -91,4 +91,21 @@ class uStatistics
 
     return $this->name.'|'.uArray::assocArrayToPrintableString($this->values);
   }
+  
+  /**
+   * Return the results as an array.
+   * 
+   * @return array
+   */
+  public function toArray()
+  {
+    if ($this->timer !== null)
+    {
+      $this->values['elapsedTime'] = $this->timer->getElapsedTime();
+    }
+    
+    $this->values['StatsDescription'] = $this->name;
+    
+    return $this->values;
+  }
 }
