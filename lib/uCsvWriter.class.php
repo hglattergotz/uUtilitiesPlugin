@@ -7,11 +7,13 @@
 class uCsvWriter
 {
   protected $fp;
+  protected $headers;
 
-  public function __construct()
+  public function __construct($headers = null)
   {
     $mem = 5*1024*1024;
     $this->fp = fopen ('php://temp/maxmemory:'.$mem, 'r+');
+    $this->headers = $headers;
   }
 
   public function __destruct()
@@ -57,9 +59,20 @@ class uCsvWriter
     return $csv;
   }
 
-  public function saveToFile($fileName)
+  public function saveToFile($fileName, $includeHeaders = true)
   {
-    throw new Exception(__METHOD__.':'.__LINE__.'|Not implemented');
+    $target = uFs::fopen($fileName, 'r+', true);
+    
+    if ($this->headers !== null && $includeHeaders)
+    {
+      fputcsv($target, $this->headers);
+    }
+    
+    $currentPosition = ftell($this->fp);
+    rewind($this->fp);
+    stream_copy_to_stream($this->fp, $target);
+    fseek($this->fp, $currentPosition);
+    fclose($target);
   }
 
   public static function csvToString($data, $colHeaders = array())
