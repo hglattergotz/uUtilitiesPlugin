@@ -61,7 +61,7 @@ class uCsvWriter
 
   public function saveToFile($fileName, $includeHeaders = true)
   {
-    $target = uFs::fopen($fileName, 'r+', true);
+    $target = uFs::fopen($fileName, 'w+', true);
     
     if ($this->headers !== null && $includeHeaders)
     {
