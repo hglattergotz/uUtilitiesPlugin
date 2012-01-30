@@ -129,7 +129,7 @@ class uMapper
     }
     else
     {
-      $name = $this->data[$this->idToName[$id]]['name'];
+      $name = $this->data[$this->idToName[$id]][$name];
     }
     
     return $name;
