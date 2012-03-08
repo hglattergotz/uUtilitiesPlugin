@@ -207,8 +207,11 @@ class uMapper
     
     if (!isset($this->idToName[$id]))
     {
-      throw new Exception(__METHOD__.':'.__LINE__.'|'.
-              $this->name.'|Invalid id '.$id);
+      if ($throwException)
+      {
+        throw new Exception(__METHOD__.':'.__LINE__.'|'.
+                $this->name.'|Invalid id '.$id);
+      }
     }
     else
     {
@@ -236,8 +239,11 @@ class uMapper
     
     if (!isset($this->nameToId[$name]))
     {
-      throw new Exception(__METHOD__.':'.__LINE__.'|'.
-              $this->name.'|Invalid name '.$name);
+      if ($throwException)
+      {
+        throw new Exception(__METHOD__.':'.__LINE__.'|'.
+                $this->name.'|Invalid name '.$name);
+      }
     }
     else
     {
