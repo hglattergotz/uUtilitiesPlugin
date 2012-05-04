@@ -20,10 +20,10 @@ class uDbBackup
    *                             and extension).
    * @return string              The full path including the .sql extension
    */
-  public static function makeDatedFullPath($path, $fileStemName)
+  public static function makeDatedFullPath($path, $fileStemName, $includeTime = false)
   {
     $extension = '.sql';
-    $date = uDate::today();
+    $date = ($includeTime) ? str_replace(':', '', uFormat::spacesToUnderscore(uDateTime::now())) : uDate::today();
     $fname = $fileStemName.'_'.$date.$extension;
 
     return uFs::mp(array($path, $fname));
@@ -75,8 +75,8 @@ class uDbBackup
    * @param string $errors
    * @param array $messages
    * @param string $connectionName
-   * 
-   * @return int 
+   *
+   * @return int
    */
   public static function database($fullPath, &$output, $options = array(), &$errors = '', &$messages = array())
   {
@@ -325,6 +325,7 @@ class uDbBackup
 
     return $pathParts['dirname'];
   }
+
   /**
    * Get the database parameters from the symfony environment.
    *
@@ -344,12 +345,12 @@ class uDbBackup
     }
 
     $dsn = $options['dsn'];
-    
+
     if (strpos($dsn, 'mysql') === false)
     {
       throw new Exception('uDbBackup only supports mysql databases!');
     }
-    
+
     $dsnComponents = explode(';', $options['dsn']);
 
     foreach ($dsnComponents as $component)
