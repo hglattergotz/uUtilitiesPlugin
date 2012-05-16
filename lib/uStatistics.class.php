@@ -53,7 +53,7 @@ class uStatistics
    */
   public function initMembers(array $members, $initValue = 0)
   {
-    foreach ($members as $member)
+    foreach ($members as $name)
     {
       $this->values[$name] = $initValue;
     }
