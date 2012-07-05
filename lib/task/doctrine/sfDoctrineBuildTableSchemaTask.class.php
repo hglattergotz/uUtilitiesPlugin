@@ -31,8 +31,13 @@ EOF;
 
   protected function execute($arguments = array(), $options = array())
   {
+    if ($options['application'] == false)
+    {
+      throw new Exception('You must set the application name in order for the database connectoins to be properly initialized (They are on the application level)');
+    }
+
     $databaseManager = new sfDatabaseManager($this->configuration);
-    
+
     $this->logSection('doctrine', 'generating yaml schema from database');
 
     $config = $this->getCliConfig();
