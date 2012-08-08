@@ -25,14 +25,14 @@ of databases in a project and not all tables are managed with Doctrine Models.
 
 Call it with:
 
-  [php symfony build-table-schema|INFO]
+  [symfony doctrine:build-table-schema|INFO] --connection=conn_name --table=tbl_name
 EOF;
   }
 
   protected function execute($arguments = array(), $options = array())
   {
     $databaseManager = new sfDatabaseManager($this->configuration);
-    
+
     $this->logSection('doctrine', 'generating yaml schema from database');
 
     $config = $this->getCliConfig();
