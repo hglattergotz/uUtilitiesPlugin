@@ -41,6 +41,25 @@ class uStatistics
   }
 
   /**
+   * initMembers
+   *
+   * A quicker way to add stats items (values to track) that are initialized to
+   * a the value passed to the method.
+   *
+   * @param array $members
+   * @param int $initValue
+   * @access public
+   * @return void
+   */
+  public function initMembers(array $members, $initValue = 0)
+  {
+    foreach ($members as $name)
+    {
+      $this->values[$name] = $initValue;
+    }
+  }
+
+  /**
    * Magic method to set a variable of an arbitrary name. This allows something
    * like the following:
    *
@@ -91,10 +110,10 @@ class uStatistics
 
     return $this->name.'|'.uArray::assocArrayToPrintableString($this->values);
   }
-  
+
   /**
    * Return the results as an array.
-   * 
+   *
    * @return array
    */
   public function toArray()
@@ -103,9 +122,9 @@ class uStatistics
     {
       $this->values['elapsedTime'] = $this->timer->getElapsedTime();
     }
-    
+
     $this->values['StatsDescription'] = $this->name;
-    
+
     return $this->values;
   }
 }
