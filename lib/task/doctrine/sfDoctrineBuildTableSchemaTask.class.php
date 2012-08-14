@@ -11,7 +11,7 @@ class sfDoctrineBuildTableSchemaTask extends sfDoctrineBaseTask
     $this->addOptions(array(
         new sfCommandOption('application', null, sfCommandOption::PARAMETER_REQUIRED, 'The application name'),
         new sfCommandOption('env', null, sfCommandOption::PARAMETER_REQUIRED, 'The environment', 'prod'),
-        new sfCommandOption('connection', null, sfCommandOption::PARAMETER_REQUIRED, 'The connection name', 'doctrine'),
+        new sfCommandOption('connection', null, sfCommandOption::PARAMETER_REQUIRED, 'The connection name'),
         new sfCommandOption('table', null, sfCommandOption::PARAMETER_REQUIRED, 'The name of the database table'),
     ));
 
@@ -25,7 +25,7 @@ of databases in a project and not all tables are managed with Doctrine Models.
 
 Call it with:
 
-  [symfony doctrine:build-table-schema|INFO] --connection=conn_name --table=tbl_name
+  [symfony doctrine:build-table-schema|INFO] --connection=conn_name --table=tbl_name --application=appname
 EOF;
   }
 
@@ -34,6 +34,16 @@ EOF;
     if ($options['application'] == false)
     {
       throw new Exception('You must set the application name in order for the database connectoins to be properly initialized (They are on the application level)');
+    }
+
+    if ($options['connection'] == false)
+    {
+      throw new Exception('You must set the connection name!');
+    }
+
+    if ($options['table'] == false)
+    {
+      throw new Exception('You must set a table name!');
     }
 
     $databaseManager = new sfDatabaseManager($this->configuration);
