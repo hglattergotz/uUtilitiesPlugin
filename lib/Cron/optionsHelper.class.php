@@ -32,6 +32,11 @@ class OptionsHelper
 
     foreach ($options as $opKey => $opVal)
     {
+      if (!array_key_exists($opKey, $optionsConfig))
+      {
+        continue;
+      }
+
       $str = '--'.$opKey;
 
       // Option value is optional or required (not of mode PARAMETER_NONE)
