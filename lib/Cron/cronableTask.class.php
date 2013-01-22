@@ -52,9 +52,9 @@ abstract class cronableTask extends sfBaseTask
    */
   protected function installCron($options)
   {
-    $this->unsetOptions($options, array('install', 'cronpath', 'crontime'));
+    $scriptOptions = $this->unsetOptions($options, array('install', 'cronpath', 'crontime'));
     $scriptName = $this->scriptPrefix.'_'.$this->namespace.'_'.$this->name;
-    $sfTaskCall = 'symfony '.$this->namespace.':'.$this->name.optionsHelper::makeOptionsString($options, $this->options);
+    $sfTaskCall = 'symfony '.$this->namespace.':'.$this->name.optionsHelper::makeOptionsString($scriptOptions, $this->options);
 
     uCron::custom($scriptName, $options['crontime'], $sfTaskCall, $options['cronpath']);
 
@@ -69,7 +69,7 @@ abstract class cronableTask extends sfBaseTask
    * @access protected
    * @return void
    */
-  protected function unsetOptions(&$options, $names = array())
+  protected function unsetOptions($options, $names = array())
   {
     foreach ($names as $name)
     {
@@ -78,5 +78,7 @@ abstract class cronableTask extends sfBaseTask
         unset($options[$name]);
       }
     }
+
+    return $options;
   }
 }
