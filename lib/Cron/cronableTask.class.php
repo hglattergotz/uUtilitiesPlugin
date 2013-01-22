@@ -52,11 +52,31 @@ abstract class cronableTask extends sfBaseTask
    */
   protected function installCron($options)
   {
+    $this->unsetOptions($options, array('install', 'cronpath', 'crontime'));
     $scriptName = $this->scriptPrefix.'_'.$this->namespace.'_'.$this->name;
     $sfTaskCall = 'symfony '.$this->namespace.':'.$this->name.optionsHelper::makeOptionsString($options, $this->options);
 
     uCron::custom($scriptName, $options['crontime'], $sfTaskCall, $options['cronpath']);
 
     return 0;
+  }
+
+  /**
+   * unsetOptions
+   *
+   * @param array $options The options array (optionName => aptionValue)
+   * @param array $names   The array of options to unset
+   * @access protected
+   * @return void
+   */
+  protected function unsetOptions(&$options, $names = array())
+  {
+    foreach ($names as $name)
+    {
+      if (array_key_exists($name, $options))
+      {
+        unset($options[$name]);
+      }
+    }
   }
 }
