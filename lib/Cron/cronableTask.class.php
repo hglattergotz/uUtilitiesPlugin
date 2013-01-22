@@ -29,7 +29,7 @@
  * @uses sfBaseTask
  * @author Henning Glatter-Götz <henning@glatter-gotz.com>
  */
-class cronableTask extends sfBaseTask
+abstract class cronableTask extends sfBaseTask
 {
   /**
    * scripPrefix
