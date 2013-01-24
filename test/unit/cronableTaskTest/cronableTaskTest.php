@@ -2,7 +2,7 @@
 
 include __DIR__.'/../../../../../test/bootstrap/unit.php';
 
-$t = new lime_test(2, new lime_output_color());
+$t = new lime_test(3, new lime_output_color());
 
 $optionsConfig = array(
   new sfCommandOption('application', null, sfCommandOption::PARAMETER_REQUIRED, 'The application name', 'etsync'),
@@ -18,22 +18,37 @@ $options = array(
   'application' => 'app',
   'env' => 'dev',
   'connection' => 'doctrine',
+  'mode' => 'incremental',
   'install' => true,
   'cronpath' => '/etc/cron.d',
   'crontime' => '*/5 * * * *'
 );
 
-$expected = ' --application=app --env=dev --connection=doctrine --install --cronpath=/etc/cron.d --crontime=*/5 * * * *';
-$t->is($expected, optionsHelper::makeOptionsString($options, $optionsConfig));
+$expected = ' --application=app --env=dev --connection=doctrine --mode=incremental --install --cronpath=/etc/cron.d --crontime=*/5 * * * *';
+$t->is(optionsHelper::makeOptionsString($options, $optionsConfig), $expected);
 
 $options = array(
   'application' => 'app',
   'env' => 'dev',
   'connection' => 'doctrine',
+  'mode' => 'incremental',
+  'install' => false,
+  'cronpath' => '/etc/cron.d',
+  'crontime' => '*/5 * * * *'
+);
+
+$expected = ' --application=app --env=dev --connection=doctrine --mode=incremental --cronpath=/etc/cron.d --crontime=*/5 * * * *';
+$t->is(optionsHelper::makeOptionsString($options, $optionsConfig), $expected);
+
+$options = array(
+  'application' => 'app',
+  'env' => 'dev',
+  'connection' => 'doctrine',
+  'mode' => null,
   'install' => false,
   'cronpath' => '/etc/cron.d',
   'crontime' => '*/5 * * * *'
 );
 
 $expected = ' --application=app --env=dev --connection=doctrine --cronpath=/etc/cron.d --crontime=*/5 * * * *';
-$t->is($expected, optionsHelper::makeOptionsString($options, $optionsConfig));
+$t->is(optionsHelper::makeOptionsString($options, $optionsConfig), $expected);

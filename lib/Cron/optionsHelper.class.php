@@ -57,7 +57,14 @@ class OptionsHelper
         else
         {
           // option value is required
-          $str .= '='.$opVal;
+          if ($opVal == null)
+          {
+            $str = '';
+          }
+          else
+          {
+            $str .= '='.$opVal;
+          }
         }
       }
       else
