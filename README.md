@@ -39,3 +39,5 @@ run this on the command line in the project folder:
 ```
 ./symonfy help doctrine:build-table-schema
 ```
+
+More information about the doctrine:build-table-schema can be found <a href="http://glatter-gotz.com/blog/2012/07/16/symfony-doctrine-build-schema-for-a-single-table">here</a>.
