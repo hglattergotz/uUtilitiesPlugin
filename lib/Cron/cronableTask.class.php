@@ -32,12 +32,12 @@
 abstract class cronableTask extends sfBaseTask
 {
   /**
-   * scripPrefix
+   * scriptPrefix
    *
    * @var string
    * @access protected
    */
-  protected $scripPrefix = 'PREFIX_NOT_SET';
+  protected $scriptPrefix = 'PREFIX_NOT_SET';
 
   /**
    * installCron
